@@ -228,6 +228,66 @@ The form uses a responsive grid layout that adapts to different screen sizes:
    npm run dev
    ```
 
+## 🌐 Deploying to GitHub Pages
+
+GitHub Pages is a great way to showcase your React projects. Here's how to deploy this project:
+
+### 1. Add GitHub Pages Dependency
+
+First, install the `gh-pages` package:
+
+```bash
+npm install --save-dev gh-pages
+```
+
+### 2. Update package.json
+
+Add these fields to your `package.json`:
+
+```json
+{
+  "homepage": "https://yourusername.github.io/dynamic-form",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
+```
+
+Replace `yourusername` with your actual GitHub username and `dynamic-form` with your repository name.
+
+### 3. Configure Vite for GitHub Pages
+
+Since you're using Vite, you need to update your `vite.config.js` file to handle the base URL correctly:
+
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: '/dynamic-form/', // Replace with your repository name
+})
+```
+
+### 4. Deploy to GitHub Pages
+
+Run the deploy command:
+
+```bash
+npm run deploy
+```
+
+### 5. Configure GitHub Repository
+
+1. Go to your GitHub repository
+2. Navigate to Settings > Pages
+3. Under "Source", select the `gh-pages` branch
+4. Save the changes
+
+Your site will be available at `https://yourusername.github.io/dynamic-form/` after a few minutes.
+
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
