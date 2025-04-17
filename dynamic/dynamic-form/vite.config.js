@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  base: '/dynamic-form/', // Base URL for GitHub Pages
+  base: '/', // Use root path for Render deployment
 })
